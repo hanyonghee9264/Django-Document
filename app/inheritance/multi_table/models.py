@@ -33,7 +33,12 @@ class Restaurant1(Place1):
     # place_ptr = models.OneToOneField(Place1, parent_link=True, primary_key=True)
     serves_hot_dogs = models.BooleanField(default=False)
     serves_pizza = models.BooleanField(default=False)
-
+    place_ptr = models.OneToOneField(
+        Place1,
+        parent_link=True,
+        primary_key=True,
+        on_delete=models.CASCADE,
+    )
     # OneToOne으로 구현할 내용이 아님
     old_place = models.ForeignKey(
         Place1, verbose_name='이전에 가게가 있던 장소(건물주소)',
